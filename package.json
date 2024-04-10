@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
+    "jest": "^29.7.0"
+  },
+  "name": "morse-code-translator",
+  "description": "morse-code-translator",
+  "version": "1.0.0",
+  "main": "morse.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Andrew Spence",
+  "license": "ISC"
+}

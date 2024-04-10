@@ -1,0 +1,22 @@
+// set up the HMTL for the morse code translator
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Morse Code Translator</title>
+        <link rel="stylesheet" href="morse.css" />
+    </head>
+    <body>
+        <h1>Morse Code Translator</h1>
+        <form>
+            <label for="textInput">Enter text to translate:</label>
+            <input id="textInput" type="text" />
+            <button type="button" id="translateButton">Translate</button>
+            <button type="reset" id="resetButton">Reset</button>
+        </form>
+        <div id="output"></div>
+        <script src="morse.js"></script>
+    </body>
+</html>
