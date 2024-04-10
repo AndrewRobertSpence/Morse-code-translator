@@ -22,6 +22,24 @@ function inputMorseCodeOrText(event) {
   }
 }
 
+// Function translate text to morse code
+
+function translateText(text) {
+  // create an empty string to store the translated morse code
+  let translatedMorseCode = "";
+  // loop through the text
+  for (let i = 0; i < text.length; i++) {
+    // if the text is a space
+    if (text[i] === " ") {
+      // add a space to the translated morse code
+      translatedMorseCode += " ";
+    } else {
+      // add the corresponding morse code to the translated morse code
+      translatedMorseCode += alphabetMorseCodeNumber[text[i].toLowerCase()];
+    }
+  }
+  return translatedMorseCode;
+}
 
 // Event listener for the reset button
 resetButton.addEventListener("click", () => {
