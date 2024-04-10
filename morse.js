@@ -23,4 +23,15 @@ function inputMorseCodeOrText(event) {
 }
 
 
+// Event listener for the reset button
+resetButton.addEventListener("click", () => {
+  // clear the text input
+  textInput.value = "";
+  // clear the output
+  output.textContent = "";
+});
+
+// Call the function to run the program
+inputMorseCodeOrText();
+
 });
