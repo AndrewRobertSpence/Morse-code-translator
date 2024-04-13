@@ -10,10 +10,13 @@
     <body id="morse">
         <h1 id="morse__title">Morse Code and Text Translator</h1>
         <form id="morse__form">
-            <label for="morse__form">Enter text or morse code to translate:</label>
+            <label for="morse__morseInput">Enter Morse Code to Translate:</label>
+            <input id="morse__morseInput" type="text" />
+            <button type="button" id="morse__translateButton">Translate</button><br/>
+            <label for="morse__textInput">Enter English to Translate:</label>
             <input id="morse__textInput" type="text" />
-            <button type="button" id="morse__translateButton">Translate</button>
-            <button type="reset" id="morse__resetButton">Reset</button>
+            <button type="button" id="text__translateButton">Translate</button><br/>
+            <button type="reset" id="morseText__resetButton">Reset</button>
         </form>
         <div id="morse__output"></div>
         <script src="morse.js"></script>
