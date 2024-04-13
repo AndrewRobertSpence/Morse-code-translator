@@ -11,5 +11,9 @@
     "test": "jest"
   },
   "author": "Andrew Spence",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.0.0"
+  }
 }

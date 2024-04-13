@@ -195,4 +195,7 @@ const config = {
   // watchman: true,
 };
 
-module.exports = config;
+// jest.config.js
+module.exports = {
+  testEnvironment: 'jsdom',
+};
