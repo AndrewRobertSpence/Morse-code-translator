@@ -73,6 +73,11 @@ export const translateText = (text) => {
   return translatedMorseCode.trim();
 };
 
+// Function to capitalize the first letter of each sentence
+export const capitalizeSentences = (text) => {
+  return text.replace(/(^|\. *)([a-z])/g, (match) => match.toUpperCase());
+};
+
 // Function translate morse code to text
 export const translateMorseCode = (morseCode) => {
   // split the morse code into an array
@@ -82,21 +87,32 @@ export const translateMorseCode = (morseCode) => {
   // call the function that swaps morse code
   let swappedMorseCode = swapMorseCode();
   console.log("swapped morse code for translation: ", swappedMorseCode);
+  let isFirstWord = true; // Flag to track if it's the beginning of a sentence
   // loop through the morse code
   for (let i = 0; i < morseCodeArr.length; i++) {
     // if the morse is a space
     if (morseCodeArr[i] === "/") {
       // add a space to the translated text
       translatedText += " ";
+      if (i < morseCodeArr.length - 1 && morseCodeArr[i + 1] === "/") {
+        isFirstWord = true; // Next word should start with a capital letter
+        i++; // Skip the next space as well
+      }
     } else if (swappedMorseCode[morseCodeArr[i]] !== undefined) {
       // add the corresponding text to the translated text if it's not undefined
-      translatedText += swappedMorseCode[morseCodeArr[i]];
+      if (isFirstWord) {
+        translatedText += swappedMorseCode[morseCodeArr[i]].toUpperCase();
+        isFirstWord = false;
+      } else {
+        translatedText += swappedMorseCode[morseCodeArr[i]];
+      }
     }
   }
   console.log("Translated Text:", translatedText);
+  // Capitalize the first letter of each sentence
+  translatedText = capitalizeSentences(translatedText);
   return translatedText;
 };
-
 
 console.log(translateMorseCode(".- .-. ."));
 
