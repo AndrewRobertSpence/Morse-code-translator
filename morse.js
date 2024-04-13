@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const translateMorseCodeButton = document.querySelector(
     "#morse__translateButton"
   );
-  const resetButton = document.querySelector("#morse__resetButton");
+  const resetButton = document.querySelector("#morseText__resetButton");
   const output = document.querySelector("#morse__output");
 
   // add function to swap the key value pairs over for morse to english translation (Chike assisted with this)
@@ -31,23 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
         translatedMorseCode += " ";
       } else {
         // add the corresponding morse code to the translated morse code
-        translatedMorseCode += alphabetMorseCodeNumber[text[i].toLowerCase()];
+        translatedMorseCode += alphabetMorseCodeNumber[text[i].toLowerCase()] + " ";
       }
     }
     return translatedMorseCode.trim();
   }
-
-  // Split the input function into input Morse code and input English text
-  function inputText() {
-    // get the value of the text input
-    const inputTexts = textInput.value;
-    output.textContent = translateText(inputTexts);
-  }
-  // add EventListener to Function input text
-  translateTextButton.addEventListener("click", inputText);
-
-  // Call the function to run the program
-  inputText();
 
   // Function translate morse code to text
   function translateMorseCode(morseCode) {
@@ -57,35 +45,47 @@ document.addEventListener("DOMContentLoaded", function () {
     let translatedText = "";
     // call the function that swaps morse code
     let swappedMorseCode = swapMorseCode();
-    console.log("swap morse code: ", swappedMorseCode);
-    // loop through the text
+    console.log("swapped morse code for translation: ", swappedMorseCode);
+    // loop through the morse code
     for (let i = 0; i < morseCodeArr.length; i++) {
-      // if the text is a space
+      // if the morse is a space
       if (morseCodeArr[i] === " ") {
-        // add a space to the translated morse code
+        // add a space to the translated text
         translatedText += " ";
       } else {
-        // add the corresponding morse code to the translated morse code
-        translatedText += swappedMorseCode[morseCodeArr[i]] || "";
+        // add the corresponding text to the translated text
+        translatedText += swappedMorseCode[morseCodeArr[i]];
       }
     }
-    return translatedText.trim();
+    console.log("Translated Text:", translatedText);
+    return translatedText;
   }
+
+     console.log(translateMorseCode(".- .-. ."))
 
   // Split the input function into input Morse code and input English text
-  function inputMorseCode() {
+  // add EventListener to Function input text
+  translateTextButton.addEventListener("click", function () {
+    // clear the morse input
+    morseInput.value = "";
+    // clear the output
+    output.textContent = "";
     // get the value of the text input
-    const inputText = morseInput.value;
-    output.textContent = translateMorseCode(inputText);
-  }
+    const inputTexts = textInput.value;
+    output.textContent = translateText(inputTexts);
+  });
 
   // add EventListener to Function input morse code
-  translateMorseCodeButton.addEventListener("click", inputMorseCode);
-
-  // Call the function to run the program
-  inputMorseCode();
-
-  //  console.log(translateMorseCode(".- .-. ."))
+  translateMorseCodeButton.addEventListener("click", function () {
+    // clear the text input
+    textInput.value = "";
+    // clear the output
+    output.textContent = "";
+    // get the value of the morse code input
+    const inputMorse = morseInput.value;
+    console.log("input morse: ", inputMorse)
+    output.textContent = translateMorseCode(inputMorse);
+  });
 
   // Event listener for the reset button
   resetButton.addEventListener("click", () => {

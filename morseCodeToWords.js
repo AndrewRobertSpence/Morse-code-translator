@@ -46,7 +46,7 @@ const alphabetMorseCodeNumber = {
     "=": "-...-",
   };
 
-  const swapMorseCode = (code) => {
+  const swapMorseCode = () => {
     return Object.fromEntries(Object.entries(alphabetMorseCodeNumber).map(([key, value])=>[value, key]));
   }
 
@@ -79,14 +79,16 @@ const translateMorseCode = (morseCode) => {
     // get the value of the text input
     const inputText = textInput.value;
     // check if the input is morse code or text
-    if (inputText.match(/^[\.|\- ]+$/)) {
-       // morse code
+    // if (inputText.match(/^[\.|\- ]+$/)) {
+    //    // morse code
        output.textContent = translateMorseCode(inputText);
-    } else {
-       // text
-       output.textContent = translateText(inputText);
-    }
+    // } else {
+    //    // text
+    //    output.textContent = translateText(inputText);
+    // }
    }
+
+   
 
  const morseCode = ".... . .-.. .-.. ---";
  const translatedText = translateMorseCode(morseCode);
