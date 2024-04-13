@@ -73,11 +73,6 @@ export const translateText = (text) => {
   return translatedMorseCode.trim();
 };
 
-// Function to capitalize the first letter of each sentence
-export const capitalizeSentences = (text) => {
-  return text.replace(/(^|\. *)([a-z])/g, (match) => match.toUpperCase());
-};
-
 // Function translate morse code to text
 export const translateMorseCode = (morseCode) => {
   // split the morse code into an array
@@ -87,7 +82,9 @@ export const translateMorseCode = (morseCode) => {
   // call the function that swaps morse code
   let swappedMorseCode = swapMorseCode();
   console.log("swapped morse code for translation: ", swappedMorseCode);
-  let isFirstWord = true; // Flag to track if it's the beginning of a sentence
+  // Flag to track if it's the beginning of a sentence
+  let isFirstWord = true; 
+  let lastChar = ''; // To track the last character processed
   // loop through the morse code
   for (let i = 0; i < morseCodeArr.length; i++) {
     // if the morse is a space
@@ -95,24 +92,30 @@ export const translateMorseCode = (morseCode) => {
       // add a space to the translated text
       translatedText += " ";
       if (i < morseCodeArr.length - 1 && morseCodeArr[i + 1] === "/") {
-        isFirstWord = true; // Next word should start with a capital letter
+        // Next word should start with a capital letter"
+        isFirstWord = true; 
         i++; // Skip the next space as well
       }
     } else if (swappedMorseCode[morseCodeArr[i]] !== undefined) {
       // add the corresponding text to the translated text if it's not undefined
-      if (isFirstWord) {
+      if (isFirstWord || '.!?'.includes(lastChar)) {
         translatedText += swappedMorseCode[morseCodeArr[i]].toUpperCase();
         isFirstWord = false;
       } else {
         translatedText += swappedMorseCode[morseCodeArr[i]];
       }
     }
+    if (morseCodeArr[i] !== "/") {
+      lastChar = swappedMorseCode[morseCodeArr[i]] || ''; // Update last character if not a space
+    }
   }
   console.log("Translated Text:", translatedText);
   // Capitalize the first letter of each sentence
-  translatedText = capitalizeSentences(translatedText);
+  // Capitalize the first letter after a full stop, exclamation mark, or question mark
+  translatedText = translatedText.replace(/(^|[.!?]\s+)([a-z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
   return translatedText;
 };
+
 
 console.log(translateMorseCode(".- .-. ."));
 
