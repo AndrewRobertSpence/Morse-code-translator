@@ -1,25 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-// identify all DOM elements
+// // identify all DOM elements
 const textInput = document.querySelector("#morse__textInput");
-const translateButton = document.querySelector("#morse__translateButton");
+const translateMorseCodeButton = document.querySelector("#morse__translateButton");
 const resetButton = document.querySelector("#morse__resetButton");
 const output = document.querySelector("#morse__output");
 
-const inputMorseCodeOrText = () => {
-  // get the value of the text input
-  const inputText = textInput.value;
-  // check if the input is morse code or text
-  if (inputText.match(/^[\.|\-]+$/)) {
-    // morse code
-    output.textContent = translateMorseCode(inputText);
-  } else {
-    // text
-    output.textContent = translateText(inputText);
-  }
+// add function to swap the key value pairs over for morse to english translation (Chike assisted with this)
+const swapMorseCode = () => {
+  return Object.fromEntries(Object.entries(alphabetMorseCodeNumber).map(([key, value])=>[value, key]));
 }
-
-// add EventListener to Function input morse code or text
-translateButton.addEventListener("click", inputMorseCodeOrText);
 
 // Function translate text to morse code
 const translateText = (text) => {
@@ -27,11 +16,11 @@ const translateText = (text) => {
   let translatedMorseCode = "";
   // loop through the text
   for (let i = 0; i < text.length; i++) {
-    // if the text is a space
-    if (text[i] === "") {
-      // add a space to the translated morse code
-      translatedMorseCode += " ";
-    } else {
+    // // if the text is a space
+    // if (text[i] === " ") {
+    //   // add a space to the translated morse code
+    //   translatedMorseCode += " ";
+    // } else {
       // add the corresponding morse code to the translated morse code
       translatedMorseCode += alphabetMorseCodeNumber[text[i].toLowerCase()];
     }
@@ -39,32 +28,51 @@ const translateText = (text) => {
   return translatedMorseCode;
 }
 
+// Split the input function into input Morse code and input English text
+const inputText = () => {
+  // get the value of the text input
+  const inputTexts = textInput.value;
+     output.textContent = translateText(inputTexts);
+ }
+// add EventListener to Function input text
+translateTextButton.addEventListener("click", inputText);
+
 // Function translate morse code to text
 const translateMorseCode = (morseCode) => {
-  // split the morse code into an array
-  const morseCodeArray = morseCode.split("   ");
-  // create an empty string to store the translated text
-  console.log("This is the morse code array: ", morseCodeArray)
-  let translatedText = "";
-  // loop through the morse code array
-  for (let i = 0; i < morseCodeArray.length; i++) {
-    // if the morse code is a space
-    if (morseCodeArray[i] === "") {
-      // add a space to the translated text
-      translatedText += " ";
-    } else {
-    // Use the MorseCodeAlphabetNumber object to find the corresponding letter
-    let translatedText = morseCodeArray.map(function (word) {
-      word.split(" ").map(function (letter) {
-        translatedText.push(morseCodeAlphabetNumber[letter])
-      })
-      translatedText.push(" ").join("")
-    })
-    return translatedText;
+   // split the morse code into an array
+  let morseCodeArr = morseCode.split(" ")
+  console.log("morse code: ", morseCode)
+  let translatedText = ""
+  // call the function that swaps morse code
+ let swappedMorseCode = swapMorseCode()
+  console.log("swap morse code: ", swappedMorseCode)
+   // loop through the text
+  for (let i = 0; i < morseCodeArr.length; i++) {
+    // // if the text is a space
+    // if (morseCodeArr[i] === " ") {
+    //   // add a space to the translated morse code
+    //   translatedText += " ";
+    // } else {
+      // add the corresponding morse code to the translated morse code
+      translatedText += swappedMorseCode[morseCodeArr[i]];
     }
   }
+  return translatedText;
 }
 
+// Split the input function into input Morse code and input English text
+const inputMorseCode = () => {
+  // get the value of the text input
+  const inputText = textInput.value;
+     output.textContent = translateMorseCode(inputText);
+ }
+ 
+// add EventListener to Function input morse code
+translateMorseCodeButton.addEventListener("click", inputMorseCode);
+
+// Call the function to run the program
+inputMorseCode();
+//  console.log(translateMorseCode1(".- .-. ."))
 // Event listener for the reset button
 resetButton.addEventListener("click", () => {
   // clear the text input
@@ -73,8 +81,8 @@ resetButton.addEventListener("click", () => {
   output.textContent = "";
 });
 
-// Call the function to run the program
-inputMorseCodeOrText();
 
 })
+
+
 
