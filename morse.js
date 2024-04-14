@@ -47,6 +47,10 @@ const alphabetMorseCodeNumber = {
   "=": "-...-",
 };
 
+const textInput = document.querySelector("#morse__textInput");
+const morseInput = document.querySelector("#morse__morseInput");
+const output = document.querySelector("#morse__output");
+
 // add function to swap the key value pairs over for morse to english translation (Chike assisted with this)
 export const swapMorseCode = () => {
   return Object.fromEntries(
@@ -120,22 +124,37 @@ export const translateMorseCode = (morseCode) => {
   );
   return translatedText;
 };
+// Function to check if a character is valid
+export const isValidCharacter = (char) => {
+  return /^[a-zA-Z0-9\.\?\!\;\:\+\-\/\= ]$/.test(char);
+};
 
-// function text input
-export const inputTexts = () => {;
-// Check if there is text input 
-if (textInput.value !== "") {
-  // Clear the output
-  output.textContent = "";
-  // Clear the morse input
-  morseInput.value = "";
-  // Get the value of the text input
-  const inputTexts = textInput.value;
-  output.textContent = translateText(inputTexts);
-} else {
-  alert("Please enter a valid text");
+// Function text input
+export const inputTexts = () => {
+  // Check if there is text input 
+  if (textInput.value !== "") {
+    // Clear the output
+    output.textContent = "";
+    // Clear the morse input
+    morseInput.value = "";
+    // Get the value of the text input
+    let inputText = textInput.value;
+
+    // Validate each character
+    inputText = inputText.split("").filter(char => isValidCharacter(char)).join("");
+
+    // Update the text input value
+    textInput.value = inputText;
+
+    // Translate text if input is not empty after validation
+    if (inputText !== "") {
+      output.textContent = translateText(inputText);
+    }
+  } else {
+    alert("Please enter a valid text");
+  }
 }
-}
+
 
 // function morse input
 export const inputMorseCode = () => {
@@ -158,20 +177,29 @@ console.log(translateMorseCode(".- .-. ."));
 
 document.addEventListener("DOMContentLoaded", function () {
   // identify all DOM elements
-  const textInput = document.querySelector("#morse__textInput");
-  const morseInput = document.querySelector("#morse__morseInput");
   const translateTextButton = document.querySelector("#text__translateButton");
   const translateMorseCodeButton = document.querySelector(
     "#morse__translateButton"
   );
   const resetButton = document.querySelector("#morseText__resetButton");
-  const output = document.querySelector("#morse__output");
 
   // EventListener for translateTextButton
   translateTextButton.addEventListener("click", inputTexts);
 
   // EventListener for translateMorseCodeButton
   translateMorseCodeButton.addEventListener("click", inputMorseCode);
+
+  // Event listener for input on text input field
+textInput.addEventListener("input", (event) => {
+  const inputValue = event.target.value;
+  const validCharacters = /^[a-zA-Z0-9\.\?\!\;\:\+\-\/\= ]*$/;
+
+  // Validate each character
+  const filteredValue = inputValue.split("").filter(char => validCharacters.test(char)).join("");
+
+  // Update the text input value
+  event.target.value = filteredValue;
+});
 
   // Event listener for the reset button
   resetButton.addEventListener("click", () => {

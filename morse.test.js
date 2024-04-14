@@ -4,6 +4,7 @@ import {
   translateMorseCode,
   swapMorseCode,
   inputTexts,
+  isValidCharacter,
   inputMorseCode,
 } from "./morse.js";
 
@@ -104,4 +105,18 @@ describe("swapMorseCode", () => {
   });
 });
 
-//
+// test for input texts and numbers and characters to morse code
+
+// describe("inputTexts", () => {
+//   // test texts and numbers and characters from only the alphabetMorseCodeNumber object can be entered into the input field
+//   it(
+//   })
+// })
+
+describe("isValidCharacter", () => {
+    // test that only the alphabetMorseCodeNumber object can be entered into the input field
+    it("should only accept the alphabetMorseCodeNumber object keys", () => {
+        const result = isValidCharacter("%$#^&");
+        expect(result).toBe(false);
+})
+})
