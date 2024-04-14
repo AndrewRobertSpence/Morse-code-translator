@@ -5,21 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Morse Code Translator</title>
-        <link rel="stylesheet" href="morse.css" />
+        <link rel="stylesheet" href="./styles/morse.css" />
     </head>
     <body id="morse">
-        <h1 id="morse__title">Morse Code and Text Translator</h1>
+        <div id="morse__background">
+            <img id="morse__translateHeading" src="translator.gif" />
+        <h1 id="morse__title">Morse Code<img id="morse__redarrows" src="redarrows.png" />English</h1>
         <form id="morse__form">
-            <label for="morse__textInput">Enter English to Translate:</label>
+            <label id="morse__label" for="morse__textInput">Enter English to Translate:</label>
             <input id="morse__textInput" type="text" />
             <button type="button" id="text__translateButton">Translate</button><br/>
-            <label for="morse__morseInput">Enter Morse Code to Translate:</label>
+            <label id="morse__label" for="morse__morseInput">Enter Morse Code to Translate:</label>
             <input id="morse__morseInput" type="text" />
             <button type="button" id="morse__translateButton">Translate</button><br/>
                  <button type="reset" id="morseText__resetButton">Reset</button>
         </form>
         <div id="morse__output"></div>
         <script type="module" src="morse.js"></script>
-        <script src="morseCode-alphabet.js"></script>
-    </body>
+    </div>
+         </body>
 </html>
