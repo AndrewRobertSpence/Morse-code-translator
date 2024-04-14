@@ -184,12 +184,35 @@ document.addEventListener("DOMContentLoaded", function () {
     "#morse__translateButton"
   );
   const resetButton = document.querySelector("#morseText__resetButton");
+  const morseFormText = document.querySelector("#morse__form__text");
+  const morseFormMorse = document.querySelector("#morse__form__morse");
+  const output = document.querySelector("#morse__output");
 
-  // EventListener for translateTextButton
-  translateTextButton.addEventListener("click", inputTexts);
+  // Hide the output and reset button initially
+  output.style.display = "none";
+  resetButton.style.display = "none";
 
-  // EventListener for translateMorseCodeButton
-  translateMorseCodeButton.addEventListener("click", inputMorseCode);
+  // Event listener for translateTextButton
+  translateTextButton.addEventListener("click", () => {
+    // Hide morse input and label
+    morseFormMorse.style.display = "none";
+    // Show output and reset button
+    output.style.display = "block";
+    resetButton.style.display = "block";
+
+    inputTexts();
+  });
+
+  // Event listener for translateMorseCodeButton
+  translateMorseCodeButton.addEventListener("click", () => {
+    // Hide text input and label
+    morseFormText.style.display = "none";
+    // Show output and reset button
+    output.style.display = "block";
+    resetButton.style.display = "block";
+
+    inputMorseCode();
+  });
 
   // Event listener for input on text input field
 textInput.addEventListener("input", (event) => {
@@ -217,11 +240,17 @@ morseInput.addEventListener("input", (event) => {
 
   // Event listener for the reset button
   resetButton.addEventListener("click", () => {
-    // clear the text input
+    // Show text input and label, hide morse input and label
+    morseFormText.style.display = "flex";
+    morseFormMorse.style.display = "flex";
+    // Hide output and reset button
+    output.style.display = "none";
+    resetButton.style.display = "none";
+    // Clear the text input
     textInput.value = "";
-    // clear the morse input
+    // Clear the morse input
     morseInput.value = "";
-    // clear the output
+    // Clear the output
     output.textContent = "";
   });
 });

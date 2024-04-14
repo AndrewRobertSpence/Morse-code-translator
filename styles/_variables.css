@@ -1,10 +1,8 @@
 :root {
     --white: #fff;
+    --black: #000;
     --lightgrey:  #ABABAB; 
-    --darkpurple: rgb(45, 0, 180);
-    --mediumpurple: rgb(45, 0, 206); 
-    --lightblue: rgb(94,187,255); 
-    --lightgreen: rgb(0, 214, 18);
-    --lightorange: rgb(255, 132, 65);
-    --lightred: rgb(255, 88, 88);
+    --darkgrey: #2E2E2E;
+    --red: #FA0000FA;
+    --darkred: #d10000fa;
     }

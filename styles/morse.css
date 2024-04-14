@@ -6,49 +6,112 @@
   padding: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  background: url("/background.png")
+  background: url("/background.png");
 }
 
 #morse__background {
   background-color: var(--lightgrey);
-    padding: 20px;
-    border: 3px solid var(--white);
-    border-radius: 15px;
+  padding: 20px;
+  border: 3px solid var(--white);
+  border-radius: 15px;
+  width: 350px;
+  padding-bottom: 50px;
 }
 
 #morse__translateHeading {
   margin: 0px;
   padding-bottom: 0px;
-  transform: scale(0.38);
-  position: relative;
-  margin-left: -263px;
-  margin-bottom: -70px;
+  transform: scale(0.46);
+  /* position: relative; */
+  margin-left: -220px;
+  margin-bottom: -90px;
   margin-top: -40px;
- }
+}
 
- #morse__title {
+#morse__title {
   margin: 0px;
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 30px;
+  margin-top: 25px;
   margin-bottom: 20px;
   font-weight: bold;
- }
+}
 
-#morse__redarrows{
-  height: 50px;
+#morse__redarrows {
+  height: 70px;
   width: 50px;
-  margin-bottom: -17px;
+  margin-bottom: -24px;
+  -webkit-text-stroke: 0.25px var(--white);
+  text-stroke: 0.5px var(--white);
 }
 
-#morse__label {
-  font-size: 18px;
+#morse__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#morse__form__text,
+#morse__form__morse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#morse__form__text #morse__label,
+#morse__form__morse #morse__label {
+  font-size: 22px;
   font-weight: bold;
+  margin-top: 20px;
 }
 
-#morse__textInput
-#morse__morseInput {
-  font-size: 18px;
+#morse__form__text input,
+#morse__form__morse input {
+  font-size: 26px;
+  margin-bottom: 40px;
+  width: 340px;
+  height: 45px;
   margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 30px;}
+  background-color: var(--darkgrey);
+  color: var(--white);
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid var(--white);
+}
+
+#text__translateButton,
+#morse__translateButton,
+#morseText__resetButton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  width: 270px;
+  height: 45px;
+  background-color: var(--darkred);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  margin-top: 20px;
+  -webkit-text-stroke: 0.25px var(--black);
+  text-stroke: 0.5px var(--black);
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+#morse__output {
+  font-size: 26px;
+  /* font-weight: bold; */
+  margin-top: 20px;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 40px;
+  -webkit-text-stroke: 0.25px var(--black);
+  text-stroke: 0.5px var(--black);
+  background-color: var(--darkgrey);
+  width: 340px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+}
