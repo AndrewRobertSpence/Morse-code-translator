@@ -47,6 +47,7 @@ const alphabetMorseCodeNumber = {
   "=": "-...-",
 };
 
+// access DOM elements
 const textInput = document.querySelector("#morse__textInput");
 const morseInput = document.querySelector("#morse__morseInput");
 const output = document.querySelector("#morse__output");
@@ -132,7 +133,8 @@ export const isValidCharacter = (char) => {
 // Function text input
 export const inputTexts = () => {
   // Check if there is text input 
-  if (textInput.value !== "") {
+  // Ensure textInput is not null or undefined
+  if (textInput && textInput.value !== "") { 
     // Clear the output
     output.textContent = "";
     // Clear the morse input
@@ -159,7 +161,7 @@ export const inputTexts = () => {
 // function morse input
 export const inputMorseCode = () => {
   // Check if there is morse code input
-  if (morseInput.value !== "") {
+  if (morseInput &&morseInput.value !== "") {
     // Clear the output
     output.textContent = "";
     // Clear the text input
@@ -198,6 +200,18 @@ textInput.addEventListener("input", (event) => {
   const filteredValue = inputValue.split("").filter(char => validCharacters.test(char)).join("");
 
   // Update the text input value
+  event.target.value = filteredValue;
+});
+
+// Event listener for input on morse input field
+morseInput.addEventListener("input", (event) => {
+  const inputValue = event.target.value;
+  const validCharacters = /^[.\-\s/]*$/; // Valid characters: ".", "-", "/", and whitespace
+
+  // Validate each character
+  const filteredValue = inputValue.split("").filter(char => validCharacters.test(char)).join("");
+
+  // Update the morse input value
   event.target.value = filteredValue;
 });
 

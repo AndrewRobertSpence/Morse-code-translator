@@ -9,7 +9,6 @@ import {
 } from "./morse.js";
 
 // tests for translate text to morse code
-
 describe("translateText", () => {
   // test texts and numbers and characters to morse code
   it("should translate texts and numbers and characters to morse code", () => {
@@ -24,7 +23,6 @@ describe("translateText", () => {
 });
 
 // tests for translate morse code to text
-
 describe("translateMorseCode", () => {
   // test morse code to texts and numbers and characters
   it("should translate morse code to texts and numbers and characters", () => {
@@ -50,7 +48,6 @@ describe("translateMorseCode", () => {
 });
 
 // tests for swap morse code
-
 describe("swapMorseCode", () => {
   // test that the key value pairs are swapped
   it("should swap the key value pairs", () => {
@@ -105,14 +102,7 @@ describe("swapMorseCode", () => {
   });
 });
 
-// test for input texts and numbers and characters to morse code
-
-// describe("inputTexts", () => {
-//   // test texts and numbers and characters from only the alphabetMorseCodeNumber object can be entered into the input field
-//   it(
-//   })
-// })
-
+// tests for isValidCharacter
 describe("isValidCharacter", () => {
     // test that only the alphabetMorseCodeNumber object can be entered into the input field
     it("should only accept the alphabetMorseCodeNumber object keys", () => {
@@ -120,3 +110,22 @@ describe("isValidCharacter", () => {
         expect(result).toBe(false);
 })
 })
+
+// test inputTexts
+describe("inputTexts", () => {
+    // test that the input is null or undefined
+    it("should not accept null or undefined", () => {
+        const result = inputTexts();
+        expect(result).toBe();
+    })
+})
+
+// test inputMorseCode
+describe("inputMorseCode", () => {
+    // test that the input is null or undefined
+    it("should not accept null or undefined", () => {
+        const result = inputMorseCode();
+        expect(result).toBe();
+    })
+})
+
