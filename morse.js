@@ -83,8 +83,9 @@ export const translateMorseCode = (morseCode) => {
   let swappedMorseCode = swapMorseCode();
   console.log("swapped morse code for translation: ", swappedMorseCode);
   // Flag to track if it's the beginning of a sentence
-  let isFirstWord = true; 
-  let lastChar = ''; // To track the last character processed
+  let isFirstWord = true;
+  // To track the last character processed
+  let lastChar = "";
   // loop through the morse code
   for (let i = 0; i < morseCodeArr.length; i++) {
     // if the morse is a space
@@ -93,12 +94,12 @@ export const translateMorseCode = (morseCode) => {
       translatedText += " ";
       if (i < morseCodeArr.length - 1 && morseCodeArr[i + 1] === "/") {
         // Next word should start with a capital letter"
-        isFirstWord = true; 
+        isFirstWord = true;
         i++; // Skip the next space as well
       }
     } else if (swappedMorseCode[morseCodeArr[i]] !== undefined) {
       // add the corresponding text to the translated text if it's not undefined
-      if (isFirstWord || '.!?'.includes(lastChar)) {
+      if (isFirstWord || ".!?".includes(lastChar)) {
         translatedText += swappedMorseCode[morseCodeArr[i]].toUpperCase();
         isFirstWord = false;
       } else {
@@ -106,21 +107,56 @@ export const translateMorseCode = (morseCode) => {
       }
     }
     if (morseCodeArr[i] !== "/") {
-      lastChar = swappedMorseCode[morseCodeArr[i]] || ''; // Update last character if not a space
+      // Update last character if not a space
+      lastChar = swappedMorseCode[morseCodeArr[i]] || "";
     }
   }
   console.log("Translated Text:", translatedText);
   // Capitalize the first letter of each sentence
   // Capitalize the first letter after a full stop, exclamation mark, or question mark
-  translatedText = translatedText.replace(/(^|[.!?]\s+)([a-z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+  translatedText = translatedText.replace(
+    /(^|[.!?]\s+)([a-z])/g,
+    (match, p1, p2) => p1 + p2.toUpperCase()
+  );
   return translatedText;
 };
 
+// function text input
+export const inputTexts = () => {;
+// Check if there is text input 
+if (textInput.value !== "") {
+  // Clear the output
+  output.textContent = "";
+  // Clear the morse input
+  morseInput.value = "";
+  // Get the value of the text input
+  const inputTexts = textInput.value;
+  output.textContent = translateText(inputTexts);
+} else {
+  alert("Please enter a valid text");
+}
+}
+
+// function morse input
+export const inputMorseCode = () => {
+  // Check if there is morse code input
+  if (morseInput.value !== "") {
+    // Clear the output
+    output.textContent = "";
+    // Clear the text input
+    textInput.value = "";
+    // Get the value of the morse code input
+    const inputMorse = morseInput.value;
+    console.log("input morse: ", inputMorse);
+    output.textContent = translateMorseCode(inputMorse);
+  } else {
+    alert("Please enter a valid morse code");
+  }
+};
 
 console.log(translateMorseCode(".- .-. ."));
 
-document.addEventListener("DOMContentLoaded", function() {
-
+document.addEventListener("DOMContentLoaded", function () {
   // identify all DOM elements
   const textInput = document.querySelector("#morse__textInput");
   const morseInput = document.querySelector("#morse__morseInput");
@@ -130,42 +166,13 @@ document.addEventListener("DOMContentLoaded", function() {
   );
   const resetButton = document.querySelector("#morseText__resetButton");
   const output = document.querySelector("#morse__output");
-  
-  // Split the input function into input Morse code and input English text
+
   // EventListener for translateTextButton
-  translateTextButton.addEventListener("click", function () {
-    // Check if there is text input
-    if (textInput.value !== "") {
-       // Clear the output
-      output.textContent = "";
-      // Clear the morse input
-      morseInput.value = "";
-      // Get the value of the text input
-      const inputTexts = textInput.value;
-      output.textContent = translateText(inputTexts);
-    } else {
-      alert("Please enter a valid text");
-    }
-  });
-  
-  
+  translateTextButton.addEventListener("click", inputTexts);
+
   // EventListener for translateMorseCodeButton
-  translateMorseCodeButton.addEventListener("click", function () {
-    // Check if there is morse code input
-    if (morseInput.value !== "") {
-       // Clear the output
-      output.textContent = "";
-      // Clear the text input
-      textInput.value = "";
-      // Get the value of the morse code input
-      const inputMorse = morseInput.value;
-      console.log("input morse: ", inputMorse);
-      output.textContent = translateMorseCode(inputMorse);
-    } else {
-      alert("Please enter a valid morse code");
-    }
-  });
-  
+  translateMorseCodeButton.addEventListener("click", inputMorseCode);
+
   // Event listener for the reset button
   resetButton.addEventListener("click", () => {
     // clear the text input
@@ -175,4 +182,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // clear the output
     output.textContent = "";
   });
-  });
+});
