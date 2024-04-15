@@ -1,15 +1,14 @@
 @import "_variables.css";
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 #morse {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-
   background: url("/background.png");
   display: flex;
   justify-content: center;
@@ -23,24 +22,21 @@
   border: 3px solid var(--white);
   border-radius: 15px;
   width: 330px;
-  padding-bottom: 50px;
-   margin: 0;
+  padding-bottom: 30px;
+  margin: 0;
 }
 
 #morse__translateHeading {
   margin: 0px;
   padding-bottom: 0px;
-  transform: scale(0.3);
-  /* position: relative; */
-  margin-left: -250px;
-  margin-bottom: -90px;
-  margin-top: -40px;
+  transform: scale(1);
+  margin-top: 20px;
+  width: 100%;
 }
 
 #morse__title {
   margin: 0px;
   font-size: 24px;
-  margin-top: 25px;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -122,7 +118,6 @@
 
 #morse__output {
   font-size: 26px;
-  /* font-weight: bold; */
   margin-top: 20px;
   color: var(--white);
   text-align: center;
@@ -136,4 +131,67 @@
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  #morse__background {
+    width: 60%;
+  }
+
+  #morse__translateHeading {
+    transform: scale(0.8);
+    margin-top: 0px;
+    margin-top: -25px;
+    margin-bottom: -100px;
+    position: relative;
+    z-index: 1;
+  }
+  #morse__title {
+    font-size: 46px;
+    position: relative;
+    z-index: 2;
+  }
+  #morse__redarrows {
+    height: 110px;
+    width: 80px;
+    margin-bottom: -38px;
+    -webkit-text-stroke: 0.5px var(--black);
+    text-stroke: 1px var(--black);
+  }
+  #morse__form__text #morse__label,
+  #morse__form__morse #morse__label {
+    font-size: 32px;
+    margin-top: 5px;
+  }
+
+  #morse__form__text input,
+  #morse__form__morse input {
+    font-size: 34px;
+    margin-bottom: 20px;
+    width: 700px;
+    height: 60px;
+  }
+  #text__translateButton,
+  #morse__translateButton,
+  #morseText__resetButton {
+    font-size: 32px;
+    width: 350px;
+    height: 50px;
+    -webkit-text-stroke: 0.5px var(--black);
+    text-stroke: 1px var(--black);
+  }
+  #morse__output {
+    font-size: 34px;
+    -webkit-text-stroke: 0.5px var(--black);
+    text-stroke: 1px var(--black);
+    background-color: var(--mediumgrey);
+    width: 700px;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }
