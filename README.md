@@ -2,6 +2,12 @@
 
 The Morse Code Translator is an intuitive application designed to effortlessly convert text between Morse code and English, facilitating seamless communication in both directions.
 
+<p align="center">  
+    <img alt="Screenshot" src="screenshot-laptop.png" width="500"/>
+    <br>
+    <img alt="Screenshot" src="screenshot-laptop1.png" width="500"/>
+</p>
+
 ## Built With
 
 - HTML, CSS, JavaScript
@@ -26,13 +32,13 @@ $ npm install
 
 3. After running live server from the HTML file, the application will render in the browser.
 
-##Author
+## Author
 
 👤 Andrew Spence
 
--GitHub: [AndrewRobertSpence](https://github.com/AndrewRobertSpence)
+-GitHub: [AndrewRobertSpence](https://github.com/AndrewRobertSpence)<br>
 -LinkedIn: [@Andrew-Spence](https://www.linkedin.com/in/andrew-spence-6b3b032a2/)
 
-##Show your support
+## Show your support
 
 Give a ⭐️ if you like this project!

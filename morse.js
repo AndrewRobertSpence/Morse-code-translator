@@ -161,7 +161,7 @@ export const inputTexts = () => {
 // function morse input
 export const inputMorseCode = () => {
   // Check if there is morse code input
-  if (morseInput &&morseInput.value !== "") {
+  if (morseInput && morseInput.value !== "") {
     // Clear the output
     output.textContent = "";
     // Clear the text input
