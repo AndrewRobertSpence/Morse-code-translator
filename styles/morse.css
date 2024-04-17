@@ -135,105 +135,111 @@
 
 @media screen and (min-width: 768px) {
   #morse__background {
-    width: 60%;
+    width: 60vw;
+    height: 84vh;
     padding-bottom: 70px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   #morse__translateHeading {
     transform: scale(0.8);
     margin-top: 0px;
     margin-top: -25px;
-    margin-bottom: -100px;
+    margin-bottom: -60px;
     position: relative;
     z-index: 1;
   }
   #morse__title {
-    font-size: 55px;
+    font-size: 32px;
     position: relative;
     z-index: 2;
   }
   #morse__redarrows {
-    height: 120px;
-    width: 80px;
-    margin-bottom: -40px;
+    height: 70px;
+    width: 50px;
+    margin-bottom: -25px;
     -webkit-text-stroke: 0.5px var(--black);
     text-stroke: 1px var(--black);
   }
   #morse__form__text #morse__label,
   #morse__form__morse #morse__label {
-    font-size: 42px;
-    margin-top: 20px;
+    font-size: 24px;
+    margin-top: 0px;
   }
   #morse__form__text input,
   #morse__form__morse input {
-    font-size: 42px;
-    margin-bottom: 20px;
-    width: 900px;
-    height: 80px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 40vw;
+    height: 40px;
+    margin-top: 5px
   }
   #text__translateButton,
   #morse__translateButton,
   #morseText__resetButton {
-    font-size: 42px;
-    width: 350px;
-    height: 70px;
+    font-size: 24px;
+    width: 17vw;
+    height: 50px;
     -webkit-text-stroke: 0.5px var(--black);
     text-stroke: 1px var(--black);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 0px;
   }
   #morse__output {
-    font-size: 52px;
+    font-size: 24px;
     -webkit-text-stroke: 0.5px var(--black);
     text-stroke: 1px var(--black);
     background-color: var(--mediumgrey);
-    width: 900px;
+    width: 40vw;
     align-items: center;
     justify-content: center;
-    padding: 25px;
+    padding: 10px;
     border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   #morse__background {
-    margin-top: 80px;
-    padding-bottom: 120px;
+    width: 60vw;
+    height: 84vh;
   }
   #morse__title {
-    font-size: 85px;
+    font-size: 42px;
+    margin-top: 0px;
   }
   #morse__redarrows {
-    height: 180px;
-    width: 120px;
-    margin-bottom: -60px;
+    height: 90px;
+    width: 90px; 
+    margin-top: -10px; 
+    margin-bottom: -30px;
   }
   #morse__form__text #morse__label,
   #morse__form__morse #morse__label {
-    font-size: 62px;
-    margin-top: 40px;
+    font-size: 32px;
+    margin-top: 20px;
   }
   #morse__form__text input,
   #morse__form__morse input {
-    font-size: 62px;
+    font-size: 32px;
     margin-bottom: 30px;
-    width: 1400px;
-    height: 120px;
+    width: 45vw;
+    height: 60px;
   }
   #text__translateButton,
   #morse__translateButton,
   #morseText__resetButton {
-    font-size: 68px;
-    width: 550px;
-    height: 120px;
+    font-size: 32px;
+    width: 17vw;;
+    height: 60px;
     padding-left: 50px;
     padding-right: 50px;
   }
   #morse__output {
-    margin-top: 70px;
-    margin-bottom: 100px;
-    font-size: 72px;
-    width: 1400px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 32px;
+    width: 45vw;
   }
 }
