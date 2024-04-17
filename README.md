@@ -3,9 +3,9 @@
 The Morse Code Translator is an intuitive application designed to effortlessly convert text between Morse code and English, facilitating seamless communication in both directions.
 
 <p align="center">  
-    <img alt="Screenshot" src="screenshot-laptop.png" width="500"/>
+    <img alt="Screenshot" src="public/screenshot-laptop.png" width="500"/>
     <br>
-    <img alt="Screenshot" src="screenshot-laptop1.png" width="500"/>
+    <img alt="Screenshot" src="public/screenshot-laptop1.png" width="500"/>
 </p>
 
 ## Built With

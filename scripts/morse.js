@@ -153,9 +153,7 @@ export const inputTexts = () => {
     if (inputText !== "") {
       output.textContent = translateText(inputText);
     }
-  } else {
-    alert("Please enter a valid text");
-  }
+  } 
 }
 
 
@@ -171,8 +169,6 @@ export const inputMorseCode = () => {
     const inputMorse = morseInput.value;
     console.log("input morse: ", inputMorse);
     output.textContent = translateMorseCode(inputMorse);
-  } else {
-    alert("Please enter a valid morse code");
   }
 };
 
@@ -195,23 +191,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 10. Event listener for translateTextButton
   translateTextButton.addEventListener("click", () => {
-    // 10.1 Hide morse input and label
+    //10.1 Check if there is text input
+    if(textInput.value === "") {
+      alert("Please enter a valid text");
+      return;
+    }
+    // 10.2 Hide morse input and label
     morseFormMorse.style.display = "none";
-    // 10.2 Show output and reset button
+    // 10.3 Show output and reset button
     output.style.display = "block";
     resetButton.style.display = "block";
-
     inputTexts();
   });
 
   // 11. Event listener for translateMorseCodeButton
   translateMorseCodeButton.addEventListener("click", () => {
-    // 11.1 Hide text input and label
+    // 11.1 Check if there is morse code input
+    if( morseInput.value === "") {
+      alert("Please enter a valid morse code");
+      return;
+    }
+    // 11.2 Hide text input and label
     morseFormText.style.display = "none";
-    // 11.2Show output and reset button
+    // 11.3 Show output and reset button
     output.style.display = "block";
     resetButton.style.display = "block";
-
     inputMorseCode();
   });
 
