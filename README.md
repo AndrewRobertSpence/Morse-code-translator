@@ -32,8 +32,6 @@ $ npm install
 
 3. After running live server from the HTML file, the application will render in the browser.
 
-4. Or click here <a href="https://andrewrobertspence.github.io/Morse-code-translator/">Morse Code Translator</a>
-
 ## Author
 
 👤 Andrew Spence
