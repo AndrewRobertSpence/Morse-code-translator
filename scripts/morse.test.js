@@ -113,18 +113,18 @@ describe("isValidCharacter", () => {
 
 // test inputTexts
 describe("inputTexts", () => {
-    // test that the input is null or undefined
+    // test that the input is null or undefined, and if so ignore it.
     it("should not accept null or undefined", () => {
-        const result = inputTexts();
+        const result = inputTexts("^");
         expect(result).toBe();
     })
 })
 
 // test inputMorseCode
 describe("inputMorseCode", () => {
-    // test that the input is null or undefined
-    it("should not accept null or undefined", () => {
-        const result = inputMorseCode();
+    // test that the input is null or undefined, and if so ignore it.
+    it("should not accept null or undefined, ignore the morse code", () => {
+        const result = inputMorseCode(".......");
         expect(result).toBe();
     })
 })

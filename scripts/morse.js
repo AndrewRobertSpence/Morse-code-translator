@@ -1,4 +1,4 @@
-// 1. morse code object
+// 1. Morse code object
 const alphabetMorseCodeNumber = {
   a: ".-",
   b: "-...",
@@ -155,7 +155,6 @@ export const inputTexts = () => {
     }
   } 
 }
-
 
 // 7. function morse input
 export const inputMorseCode = () => {
