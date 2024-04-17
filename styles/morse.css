@@ -136,9 +136,6 @@
 @media screen and (min-width: 768px) {
   #morse__background {
     width: 60vw;
-    height: 84vh;
-    padding-bottom: 70px;
-    margin-top: 10px;
   }
   #morse__translateHeading {
     transform: scale(0.8);
@@ -203,7 +200,6 @@
 @media screen and (min-width: 1440px) {
   #morse__background {
     width: 60vw;
-    height: 84vh;
   }
   #morse__title {
     font-size: 42px;
@@ -235,6 +231,7 @@
     height: 60px;
     padding-left: 50px;
     padding-right: 50px;
+    margin-bottom: 40px;
   }
   #morse__output {
     margin-top: 30px;
