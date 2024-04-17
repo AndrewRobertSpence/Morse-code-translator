@@ -110,6 +110,7 @@ export const translateMorseCode = (morseCode) => {
         isFirstWord = false;
       } else {
         translatedText += swappedMorseCode[morseCodeArr[i]];
+        continue;
       }
     }
     if (morseCodeArr[i] !== "/") {
