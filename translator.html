@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Morse Code Translator</title>
+    <link rel="stylesheet" href="./styles/morse.css?v=2" />
+  </head>
+  <body id="morse">
+    <div id="morse__background">
+      <img id="morse__translateHeading" src="./public/translator.gif" />
+      <h1 id="morse__title">
+        English<img id="morse__redarrows" src="./public/redarrows.png" />Morse Code
+      </h1>
+      <div id="morse__form">
+        <div id="morse__form__text">
+          <label id="morse__label" for="morse__textInput"
+            >Enter English to Translate:</label
+          >
+          <input id="morse__textInput" type="text" />
+          <button type="button" id="text__translateButton">Translate</button
+          ><br />
+        </div>
+        <div id="morse__form__morse">
+          <label id="morse__label" for="morse__morseInput"
+            >Enter Morse Code to Translate:</label
+          >
+          <input id="morse__morseInput" type="text" />
+          <button type="button" id="morse__translateButton">Translate</button
+          ><br />
+        </div>
+        <div id="morse__outputReset">
+          <div id="morse__output"></div>
+          <button type="reset" id="morseText__resetButton">Reset</button>
+        </div>
+      </div>
+      <script type="module" src="./scripts/morse.js?v=2"></script>
+    </div>
+  </body>
+</html>
